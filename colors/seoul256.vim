@@ -123,16 +123,18 @@ if !exists('s:rgb_map')
         \  65: '#719872', 66: '#719899', 67: '#7299BC', 68: '#719CDF', 73: '#6FBCBD',
         \  74: '#70BDDF', 88: '#9B1300', 89: '#9B1D72', 94: '#9A7200', 95: '#9A7372',
         \  96: '#9A7599', 101: '#999872', 103: '#999ABD', 108: '#98BC99', 109: '#98BCBD',
-        \ 110: '#98BEDE', 116: '#97DDDF', 125: '#BF2172', 131: '#BE7572', 137: '#BE9873',
-        \ 143: '#BDBB72', 144: '#BDBC98', 145: '#BDBDBD', 151: '#BCDDBD', 152: '#BCDEDE',
-        \ 153: '#BCE0FF', 161: '#E12672', 168: '#E17899', 173: '#E19972', 174: '#E09B99',
-        \ 179: '#DFBC72', 181: '#E0BEBC', 184: '#DEDC00', 186: '#DEDD99', 187: '#DFDEBD',
-        \ 189: '#DFDFFF', 216: '#FFBD98', 217: '#FFBFBD', 218: '#FFC0DE', 220: '#FFDD00',
-        \ 222: '#FFDE99', 224: '#FFDFDF', 230: '#FFFFDF', 231: '#FFFFFF', 232: '#060606',
-        \ 233: '#171717', 234: '#252525', 235: '#333233', 236: '#3F3F3F', 237: '#4B4B4B',
-        \ 238: '#565656', 239: '#616161', 240: '#6B6B6B', 241: '#757575', 249: '#BFBFBF',
-        \ 250: '#C8C8C8', 251: '#D1D0D1', 252: '#D9D9D9', 253: '#E1E1E1', 254: '#E9E9E9',
-        \ 255: '#F1F1F1' }
+        \ 110: '#98BEDE', 111: '#ba5e40', 116: '#97DDDF', 125: '#BF2172', 130: '#bb8444', 131: '#BE7572',
+        \ 137: '#BE9873', 142: '#8c8b45',
+        \ 143: '#BDBB72', 144: '#BDBC98', 145: '#BDBDBD', 146: '#b86985', 151: '#BCDDBD',
+        \ 152: '#BCDEDE', 153: '#BCE0FF', 161: '#E12672', 168: '#E17899', 173: '#E19972',
+        \ 174: '#E09B99', 179: '#DFBC72', 181: '#E0BEBC', 184: '#DEDC00', 186: '#DEDD99',
+        \ 187: '#DFDEBD', 189: '#DFDFFF', 216: '#FFBD98', 217: '#FFBFBD', 218: '#FFC0DE', 219: '#b69958',
+        \ 220: '#FFDD00', 222: '#FFDE99', 224: '#FFDFDF', 230: '#FFFFDF', 231: '#FFFFFF',
+        \ 232: '#060606', 233: '#171717', 234: '#252525', 235: '#333233', 236: '#3F3F3F',
+        \ 237: '#4B4B4B', 238: '#565656', 239: '#616161', 240: '#6B6B6B', 241: '#757575',
+        \ 242: '#8c8980', 243: '#939088', 244: '#99968d', 245: '#a19d95', 246: '#a9a59d',
+        \ 247: '#b1aea5', 248: '#bcb8af', 249: '#c1beb5', 250: '#ccc9c0', 251: '#d5d1c8',
+        \ 252: '#dddad0', 253: '#e6e2d9', 254: '#ebe8de', 255: '#f4f0e7' }
     endif
 endif
 
@@ -205,20 +207,20 @@ endif
 
 call s:hi('Normal', [s:dark_fg, s:light_fg], [s:dark_bg, s:light_bg])
 
-call s:hi('LineNr', [s:dark_bg + 2, 101], [s:dark_bg, s:light_bg])
+call s:hi('LineNr', [s:dark_bg + 2, s:light_bg - 4], [s:dark_bg, s:light_bg])
 call s:hi('Visual', ['', ''], [237, 152])
 call s:hi('VisualNOS', ['', ''], [237, 152])
 
-call s:hi('Comment', [s:dark_bg + 4, s:light_bg - 4], ['', ''])
+call s:hi('Comment', [s:dark_bg + 4, s:light_bg - 5], ['', ''])
 call s:hi('Number', [222, 95], ['', ''])
 call s:hi('Float', [222, 95], ['', ''])
-call s:hi('Boolean', [103, 168], ['', ''])
-call s:hi('String', [108, 66], ['', ''])
+call s:hi('Boolean', [103, 146], ['', ''])
+call s:hi('String', [108, 65], ['', ''])
 call s:hi('Constant', [73, 23], ['', ''])
 call s:hi('Character', [174, 168], ['', ''])
-call s:hi('Delimiter', [137, 94], ['', ''])
-call s:hi('StringDelimiter', [137, 94], ['', ''])
-call s:hi('Statement', [109, 30], ['', ''])
+call s:hi('Delimiter', [137, 59], ['', ''])
+call s:hi('StringDelimiter', [137, 59], ['', ''])
+call s:hi('Statement', [109, 66], ['', ''])
 " case, default, etc.
 " hi Label ctermfg=
 
@@ -238,19 +240,19 @@ call s:hi('PreCondit', [173, 131], ['', ''])
 
 
 " #!
-call s:hi('PreProc', [143, 58], ['', ''])
+call s:hi('PreProc', [143, 142], ['', ''])
 
 " @abc
 call s:hi('Identifier', [217, 96], ['', ''])
 
 " AAA Abc
-call s:hi('Type', [179, 94], ['', ''])
+call s:hi('Type', [179, 130], ['', ''])
 
 " + - * / <<
 call s:hi('Operator', [186, 131], ['', ''])
 
 " super yield
-call s:hi('Keyword', [168, 168], ['', ''])
+call s:hi('Keyword', [168, 161], ['', ''])
 
 " raise
 call s:hi('Exception', [161, 161], ['', ''])
@@ -259,8 +261,8 @@ call s:hi('Exception', [161, 161], ['', ''])
 call s:hi('Structure', [116, 23], ['', ''])
 " hi Typedef ctermfg=
 
-call s:hi('Error', [s:dark_fg, s:light_bg_1], [52, 174])
-call s:hi('ErrorMsg', [s:dark_fg, s:light_bg_1], [52, 168])
+call s:hi('Error', [s:dark_fg, s:dark_fg], [52, 174])
+call s:hi('ErrorMsg', [s:dark_fg, s:light_bg], [52, 131])
 call s:hi('Underlined', [181, 168], ['', ''])
 
 " set textwidth=80
@@ -309,7 +311,7 @@ call s:hi('Search', [s:dark_bg + 1, 238], [220, 220])
 call s:hi('IncSearch', [24, 74], [s:dark_fg, 255])
 
 " String delimiter, interpolation
-call s:hi('Special', [216, 173], ['', ''])
+call s:hi('Special', [216, 111], ['', ''])
 " hi SpecialChar ctermfg=
 " hi SpecialComment ctermfg=
 " hi Tag ctermfg=
