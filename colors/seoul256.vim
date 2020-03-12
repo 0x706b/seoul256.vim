@@ -146,7 +146,7 @@ if exists('g:seoul256_background')
   let s:seoul256_background = g:seoul256_background
   if s:seoul256_background >= 233 && s:seoul256_background <= 239
     let s:style = 'dark'
-  elseif s:seoul256_background >= 252 && s:seoul256_background <= 256
+  elseif s:seoul256_background >= 250 && s:seoul256_background <= 256
     let s:style = 'light'
   else
     unlet s:seoul256_background
@@ -205,20 +205,20 @@ endif
 
 call s:hi('Normal', [s:dark_fg, s:light_fg], [s:dark_bg, s:light_bg])
 
-call s:hi('LineNr', [101, 101], [s:dark_bg + 1, s:light_bg - 2])
-call s:hi('Visual', ['', ''], [23, 152])
-call s:hi('VisualNOS', ['', ''], [23, 152])
+call s:hi('LineNr', [s:dark_bg + 2, 101], [s:dark_bg, s:light_bg])
+call s:hi('Visual', ['', ''], [237, 152])
+call s:hi('VisualNOS', ['', ''], [237, 152])
 
-call s:hi('Comment', [65, 65], ['', ''])
+call s:hi('Comment', [s:dark_bg + 4, s:light_bg - 4], ['', ''])
 call s:hi('Number', [222, 95], ['', ''])
 call s:hi('Float', [222, 95], ['', ''])
 call s:hi('Boolean', [103, 168], ['', ''])
-call s:hi('String', [109, 30], ['', ''])
+call s:hi('String', [108, 66], ['', ''])
 call s:hi('Constant', [73, 23], ['', ''])
 call s:hi('Character', [174, 168], ['', ''])
 call s:hi('Delimiter', [137, 94], ['', ''])
 call s:hi('StringDelimiter', [137, 94], ['', ''])
-call s:hi('Statement', [108, 66], ['', ''])
+call s:hi('Statement', [109, 30], ['', ''])
 " case, default, etc.
 " hi Label ctermfg=
 
@@ -265,16 +265,16 @@ call s:hi('Underlined', [181, 168], ['', ''])
 
 " set textwidth=80
 " set colorcolumn=+1
-call s:hi('ColorColumn', ['', ''], [s:dark_bg - 1, s:light_bg - 2])
+call s:hi('ColorColumn', ['', ''], [s:dark_bg + 1, s:light_bg - 2])
 
 " GVIM only
 " hi Cursor ctermfg=
 " hi CursorIM ctermfg=
 
 " set cursorline cursorcolumn
-call s:hi('CursorLine', ['', ''], [s:dark_bg - 1, s:light_bg - 1])
-call s:hi('CursorLineNr', [131, 131], [s:dark_bg - 1, s:light_bg - 1])
-call s:hi('CursorColumn', ['', ''], [s:dark_bg - 1, s:light_bg - 1])
+call s:hi('CursorLine', ['', ''], [s:dark_bg + 1, s:light_bg - 1])
+call s:hi('CursorLineNr', [131, 131], [s:dark_bg + 1, s:light_bg - 1])
+call s:hi('CursorColumn', ['', ''], [s:dark_bg + 1, s:light_bg - 1])
 
 call s:hi('Directory', [187, 95], ['', ''])
 
@@ -283,7 +283,7 @@ call s:hi('DiffDelete', ['NONE', 'NONE'], [95, 181])
 call s:hi('DiffChange', ['NONE', 'NONE'], [s:dark_bg + 3, 189])
 call s:hi('DiffText',   ['NONE', 'NONE'], [52, 224])
 
-call s:hi('VertSplit', [s:dark_bg_2, s:light_bg - 3], [s:dark_bg_2, s:light_bg - 3])
+call s:hi('VertSplit', [s:dark_bg, s:light_bg], [s:dark_bg + 1, s:light_bg - 1])
 call s:hi('Folded', [101, 101], [s:dark_bg + 1, s:light_bg - 2])
 
 " set foldcolumn=1
@@ -300,13 +300,13 @@ call s:hi('NonText', [59, 145], ['', ''])
 call s:hi('MoreMsg', [173, 173], ['', ''])
 
 " Popup menu
-call s:hi('Pmenu', [s:dark_bg + 1, 238], [224, 224])
-call s:hi('PmenuSel', [s:dark_fg, s:dark_fg], [89, 89])
+call s:hi('Pmenu', [s:dark_fg, s:light_fg], [s:dark_bg + 1, s:light_bg - 2])
+call s:hi('PmenuSel', [s:dark_fg, s:dark_fg], [s:dark_bg + 3, s:dark_bg + 3])
 call s:hi('PmenuSbar', ['', ''], [65, 65])
 call s:hi('PmenuThumb', ['', ''], [23, 23])
 
-call s:hi('Search', [s:dark_fg, 255], [24, 74])
-call s:hi('IncSearch', [220, 220], [s:dark_bg + 1, 238])
+call s:hi('Search', [s:dark_bg + 1, 238], [220, 220])
+call s:hi('IncSearch', [24, 74], [s:dark_fg, 255])
 
 " String delimiter, interpolation
 call s:hi('Special', [216, 173], ['', ''])
@@ -407,7 +407,7 @@ call s:hi('SignifySignDelete', [161, 161], [s:dark_bg + 1, s:light_bg - 2])
 
 " coc.nvim
 " --------
-call s:hi('CocFloating', [s:dark_fg, s:light_fg], [s:dark_bg_2, s:light_bg - 2])
+call s:hi('CocFloating', [s:dark_fg, s:light_fg], [s:dark_bg + 1, s:light_bg - 2])
 
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces     
 " ---------------------------------------------------^^^^^
@@ -431,6 +431,15 @@ call s:hi('rubyPredefinedIdentifier', [230, 52], ['', ''])
 
 hi CursorLine cterm=NONE
 hi CursorLineNr cterm=NONE
+
+" yats.vim
+" --------
+
+hi! link typescriptTypeReference Type
+hi! link typescriptBinaryOp Boolean
+hi! link typescriptAssign Boolean
+hi! link typescriptBraces Delimiter
+hi! link typescriptTernaryOp Conditional
 
 let g:seoul256_current_fg = [s:dark_fg, s:light_fg][s:style_idx]
 let g:seoul256_current_bg = [s:dark_bg, s:light_bg][s:style_idx]
